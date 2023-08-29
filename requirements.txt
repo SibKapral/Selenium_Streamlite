@@ -1,4 +1,4 @@
 selenium
 webdriver-manager
-beautifulsoup4
+BeautifulSoup4
 lxml
