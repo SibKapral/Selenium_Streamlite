@@ -9,6 +9,7 @@ from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.firefox import GeckoDriverManager
+from bs4 import BeautifulSoup
 
 st.title("Test Selenium")
 st.markdown("You should see some random Football match text below in about 21 seconds")
@@ -29,6 +30,11 @@ driver.get(URL)
 
 
 driver.get(URL)
-elements = driver.find_elements(By.CLASS_NAME, 'pHiOh')
+data = driver.page_source
 
-st.write(elements)
+soup = BeautifulSoup(data, features="lxml")
+
+frame_info = soup.find_all(class_='pHiOh')
+
+
+st.write(frame_info)
