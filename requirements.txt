@@ -6,3 +6,4 @@ requests==2.28.2
 webdriver-manager
 selenium==4.11.2
 seleniumbase
+ipdb==0.13.9
