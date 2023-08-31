@@ -101,7 +101,7 @@ if not st.session_state.df.empty:
                     data_urls = view_resume(salary_check, min_salary, df1, bytes_data, num_vacanc)
                 else:
                     data_urls = view_resume(salary_check, min_salary, df1, None, num_vacanc)
-                #st.dataframe(data_urls)
+                st.dataframe(data_urls)
         with c2:
             if st.button('SEND RESUME', key='button_feedbacks2'):
                 df1 = st.session_state.df
@@ -118,7 +118,6 @@ if not st.session_state.df.empty:
                         driver.get(url_one)
                         st.write(f"{a} of {quantity_urls} processed")
                         a = a+1
-        st.dataframe(data_urls)
 
 
 else:
