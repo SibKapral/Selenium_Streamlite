@@ -14,17 +14,18 @@ def selen_func(log, pas):
     def get_driver():
         return webdriver.Chrome(options=options)
 
-    try:
-        driver.quit()
-    except:
-        st.write("good quit")
+
 
     options = Options()
     options.add_argument('--disable-gpu')
     options.add_argument('--headless')
 
     driver = get_driver()
-
+    
+    try:
+        driver.quit()
+    except:
+        st.write("good quit")
 
     try:
         driver.get("https://hh.ru/account/login?customDomain=1")
