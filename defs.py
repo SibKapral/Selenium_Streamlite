@@ -106,7 +106,7 @@ def map_f(df1):
 
 
 def number_of_vacancies(df):
-    false_count = int(df['salary_None'].value_counts()[True])
+    false_count = int(df['salary_None'].value_counts()[False])
     b=int(len(df))
     list_vacancies = [b, false_count]
     return list_vacancies

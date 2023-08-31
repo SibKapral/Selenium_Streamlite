@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from defs import hh_to_df, list_columns_dicts, spliting_columns, map_f, number_of_vacancies, average_value_salary_from_to
 from selenium_func import selen_func
+from change_for_resume import send_resume, view_resume
 import plotly.express as px
 
 # Инициализация session_state
@@ -65,44 +66,83 @@ if not st.session_state.df.empty:
                     file_name="main.xlsx"
                 )
     with tab2:
-        c1, c2 = st.columns([1, 3])
-        container = st.container()
-        c1.metric("Left feedbacks", 0)
-        with c2:
-            agree = st.checkbox('With salary')
-            if "age_slider_value" not in st.session_state:
-                #st.session_state.age_slider_value = 25
-                age = st.slider('Minimum salary', 0, 130, 25)
-                #st.session_state.age_slider_value = age
-        st.markdown("---")
-        c1, c2 = st.columns(2)
-        with c1:
-            login = st.text_input('Login', '')
-        with c2:
-            passwd = st.text_input('Password', '')
-        if st.button('Send resume', key='button_feedbacks'):
-            urls = ['https://hh.ru/applicant/vacancy_response?vacancyId=85724750','https://hh.ru/applicant/vacancy_response?vacancyId=85723367','https://hh.ru/applicant/vacancy_response?vacancyId=85855613','https://hh.ru/applicant/vacancy_response?vacancyId=71025286','https://hh.ru/applicant/vacancy_response?vacancyId=85564141','https://hh.ru/applicant/vacancy_response?vacancyId=86066238','https://hh.ru/applicant/vacancy_response?vacancyId=86057963','https://hh.ru/applicant/vacancy_response?vacancyId=85135373','https://hh.ru/applicant/vacancy_response?vacancyId=85752115','https://hh.ru/applicant/vacancy_response?vacancyId=86064516']
-            quantity_urls = len(urls)
-            a = 1
-            with st.spinner("Parsing..."):
-                st.write("Searching for data...")
-                driver = selen_func(login, passwd)
-                for url_one in urls:
-                    driver.get(url_one)
-                    st.write(f"{a}/{quantity_urls}")
-                    a = a+1
 
-                    
+        #bytes_data = 1           
         with st.expander("Alternative 📥"):
             uploaded_files = st.file_uploader('Choose a XLSX file with "apply_alternate_url"', accept_multiple_files=True, type=['xlsx'])
             for uploaded_file in uploaded_files:
                 bytes_data = pd.read_excel(uploaded_file)
                 st.markdown("---")
-                c1, c2 = st.columns([3,1])
-                with c1:
-                    #st.write("filename:", uploaded_file.name)
-                    st.dataframe(bytes_data)
-                with c2:
-                    st.button('Send resume', key='button_feedbacks_alternative')
+                data_add = st.dataframe(bytes_data)
+        
+        salary_check = st.checkbox('With salary')
+        if "age_slider_value" not in st.session_state:
+            #st.session_state.age_slider_value = 25
+            c1, c2 = st.columns(2)
+            with c1:
+                min_salary = st.number_input('Minimum salary', value = 100000)
+            with c2:
+                num_vacanc = st.number_input('Vacancies quantity', value = 200, max_value = 200)
+            #st.session_state.age_slider_value = age
+        c1, c2 = st.columns(2)
+        with c1:
+            login = st.text_input('Login', '')
+        with c2:
+            passwd = st.text_input('Password', '')
+        st.markdown("---")
+
+
+
+        c1, c2 = st.columns(2)
+        with c1:
+            if st.button('Generate list', key='button_feedbacks'):
+                df1 = st.session_state.df
+                if 'bytes_data' in globals():
+                    data_urls = view_resume(salary_check, min_salary, df1, bytes_data, num_vacanc)
+                else:
+                    data_urls = view_resume(salary_check, min_salary, df1, None, num_vacanc)
+                st.dataframe(data_urls)
+        with c2:
+            if st.button('SEND RESUME', key='button_feedbacks2'):
+                df1 = st.session_state.df
+                if 'bytes_data' in globals():
+                    urls = send_resume(salary_check, min_salary, st.session_state.df, bytes_data, num_vacanc)
+                else:
+                    urls = send_resume(salary_check, min_salary, df1, None, num_vacanc)
+                quantity_urls = len(urls)
+                a = 1
+                with st.spinner("Parsing..."):
+                    st.write("Searching for data...")
+                    driver = selen_func(login, passwd)
+                    for url_one in urls:
+                        driver.get(url_one)
+                        st.write(f"{a}/{quantity_urls}")
+                        a = a+1
+
+
 else:
     st.markdown('<h3>Select the data and click the refresh button 😉</h3>', unsafe_allow_html=True)
+
+
+        #if st.button('Send resume', key='button_feedbacks'):
+        #    urls = send_resume(salary_check, min_salary, st.session_state.df, bytes_data, num_vacanc)
+        #    quantity_urls = len(urls)
+        #    a = 1
+        #    with st.spinner("Parsing..."):
+        #        st.write("Searching for data...")
+        #        driver = selen_func(login, passwd)
+        #        for url_one in urls:
+        #            driver.get(url_one)
+        #            st.write(f"{a}/{quantity_urls}")
+        #            a = a+1
+
+
+
+        #with c2:
+        #    if st.button('SEND RESUME', key='button_feedbacks2'):
+        #        df1 = st.session_state.df
+        #        if 'bytes_data' in globals():
+        #            urls = view_resume(salary_check, min_salary, df1, bytes_data, num_vacanc)
+        #        else:
+        #            urls = view_resume(salary_check, min_salary, df1, None, num_vacanc)
+        #        st.dataframe(ur
