@@ -18,10 +18,10 @@ citys_list = {
 }
 
 with st.sidebar:
-    #st.markdown(
-    #    '<h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/HeadHunter_logo.png/200px-HeadHunter_logo.png" height="40">&nbsp Interactive Dashboard</h3>',
-    #    unsafe_allow_html=True,
-    #)
+    st.markdown(
+        '<h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/HeadHunter_logo.png/200px-HeadHunter_logo.png" height="40">&nbsp Interactive Dashboard</h3>',
+        unsafe_allow_html=True,
+    )
     st.markdown(
         '<h6>by <a href="https://github.com/Balalaika1">Balalaika1</a></h6>',
         unsafe_allow_html=True,
