@@ -81,7 +81,7 @@ if not st.session_state.df.empty:
         with c2:
             passwd = st.text_input('Password', '')
         if st.button('Send resume', key='button_feedbacks'):
-            urls = ['https://hh.ru/applicant/vacancy_response?vacancyId=85928412','https://hh.ru/applicant/vacancy_response?vacancyId=85969320','https://hh.ru/applicant/vacancy_response?vacancyId=85931286','https://hh.ru/applicant/vacancy_response?vacancyId=85644688','https://hh.ru/applicant/vacancy_response?vacancyId=85925310','https://hh.ru/applicant/vacancy_response?vacancyId=85971965','https://hh.ru/applicant/vacancy_response?vacancyId=85928380','https://hh.ru/applicant/vacancy_response?vacancyId=85954144','https://hh.ru/applicant/vacancy_response?vacancyId=85632103','https://hh.ru/applicant/vacancy_response?vacancyId=85949874']
+            urls = ['https://hh.ru/applicant/vacancy_response?vacancyId=85724750','https://hh.ru/applicant/vacancy_response?vacancyId=85723367','https://hh.ru/applicant/vacancy_response?vacancyId=85855613','https://hh.ru/applicant/vacancy_response?vacancyId=71025286','https://hh.ru/applicant/vacancy_response?vacancyId=85564141','https://hh.ru/applicant/vacancy_response?vacancyId=86066238','https://hh.ru/applicant/vacancy_response?vacancyId=86057963','https://hh.ru/applicant/vacancy_response?vacancyId=85135373','https://hh.ru/applicant/vacancy_response?vacancyId=85752115','https://hh.ru/applicant/vacancy_response?vacancyId=86064516']
             quantity_urls = len(urls)
             a = 1
             with st.spinner("Parsing..."):
