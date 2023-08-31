@@ -33,15 +33,15 @@ def selen_func(log, pas):
         driver.get("https://hh.ru/account/login?customDomain=1")
         sleep(5)
         print(1)
-        st.write("1")
+        st.write("Scraper activation (preparation for scraping 1/5)")
     except:
-        st.write("1-non")
+        st.write("1/5-non")
     try:
         pass_button = driver.find_elements(By.CLASS_NAME, 'bloko-link.bloko-link_pseudo')
         pass_button[1].click()
         sleep(5)
         print(2)
-        st.write("2")
+        st.write("Site's home page (preparation for scraping 2/5)")
     except:
         st.write("2-non")
     try:
@@ -49,7 +49,7 @@ def selen_func(log, pas):
         print(len(search))
         sleep(5)
         print(3)
-        st.write("3")
+        st.write("Initialization page (preparation for scraping 3/5)")
     except:
         st.write("3-non")
     try:
@@ -57,14 +57,14 @@ def selen_func(log, pas):
         search[2].send_keys(f'{pas}')
         sleep(5)
         print(4)
-        st.write("4")
+        st.write("Login and password input (preparation for scraping 4/5)")
     except:
         st.write("4-non")
     try:
         search[2].send_keys(Keys.ENTER)
         sleep(5)
         print(5)
-        st.write("5")
+        st.write("Completion of initialization (preparation for scraping 5/5)")
     except:
         st.write("5-non")
     return driver

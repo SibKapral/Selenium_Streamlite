@@ -116,9 +116,33 @@ if not st.session_state.df.empty:
                     driver = selen_func(login, passwd)
                     for url_one in urls:
                         driver.get(url_one)
-                        st.write(f"{a}/{quantity_urls}")
+                        st.write(f"{a} of {quantity_urls} processed")
                         a = a+1
 
 
 else:
     st.markdown('<h3>Select the data and click the refresh button 😉</h3>', unsafe_allow_html=True)
+
+
+        #if st.button('Send resume', key='button_feedbacks'):
+        #    urls = send_resume(salary_check, min_salary, st.session_state.df, bytes_data, num_vacanc)
+        #    quantity_urls = len(urls)
+        #    a = 1
+        #    with st.spinner("Parsing..."):
+        #        st.write("Searching for data...")
+        #        driver = selen_func(login, passwd)
+        #        for url_one in urls:
+        #            driver.get(url_one)
+        #            st.write(f"{a}/{quantity_urls}")
+        #            a = a+1
+
+
+
+        #with c2:
+        #    if st.button('SEND RESUME', key='button_feedbacks2'):
+        #        df1 = st.session_state.df
+        #        if 'bytes_data' in globals():
+        #            urls = view_resume(salary_check, min_salary, df1, bytes_data, num_vacanc)
+        #        else:
+        #            urls = view_resume(salary_check, min_salary, df1, None, num_vacanc)
+        #        st.dataframe(ur
