@@ -36,7 +36,7 @@ def view_resume(salary, min_salary, df_main, bytes_data=None, num_vacanc=10):
             df = df_main[pd.isna(df_main['salary_from'])]
         
         df = df.head(num_vacanc)
-        df = df[['name','apply_alternate_url', 'salary_from']].reset_index(drop=True)
+        df = df[['name','apply_alternate_url', 'salary_from','employer_name']].reset_index(drop=True)
         
     else:
         # Обработка bytes_data
