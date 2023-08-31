@@ -10,7 +10,7 @@ from time import sleep
 def selen_func(log, pas):
     chrome_driver_path = "./chromedriver"
 
-    @st.cache_resource
+    #@st.cache_resource
     def get_driver():
         return webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
