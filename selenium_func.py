@@ -12,7 +12,7 @@ def selen_func(log, pas):
 
     @st.cache_resource
     def get_driver():
-        return webdriver.Chrome(options=options)
+        return webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
 
 
@@ -24,10 +24,10 @@ def selen_func(log, pas):
 
     driver = get_driver()
     
-    try:
-        driver.quit()
-    except:
-        st.write("good quit")
+    #try:
+    #    driver.quit()
+    #except:
+    #    st.write("good quit")
 
     try:
         driver.get("https://hh.ru/account/login?customDomain=1")
