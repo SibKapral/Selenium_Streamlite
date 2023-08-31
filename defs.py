@@ -99,7 +99,7 @@ def spliting_columns(name_lists_list, df2):
 def map_f(df1):
     df = df1
     df = df.dropna(subset=['salary_from'])
-    fig = px.scatter_mapbox(df, lat='address_lat', lon='address_lng',size = 'salary_from', size_max=10, color='salary_currency')
+    fig = px.scatter_mapbox(df, lat='address_lat', lon='address_lng',size = 'salary_from', size_max=10)
     fig.update_layout(mapbox_style="open-street-map")
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     return fig
