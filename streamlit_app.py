@@ -114,8 +114,9 @@ if not st.session_state.df.empty:
                     st.write("Searching for data...")
                     try:
                         driver.out()
+                        st.write('ok')
                     except:
-                        print(1)
+                        st.write('not ot')
                     
                     driver = selen_func(login, passwd)
                     for url_one in urls:
