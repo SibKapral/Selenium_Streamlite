@@ -86,7 +86,7 @@ if not st.session_state.df.empty:
             
             2️⃣🚀 Нажмите "SEND RESUME" для отправки резюме.''')
         
-        with st.expander("Alternative 📥"):
+        with st.expander("alternative way 📥"):
             uploaded_files = st.file_uploader('Choose a XLSX file with "apply_alternate_url"', accept_multiple_files=True, type=['xlsx'])
             for uploaded_file in uploaded_files:
                 bytes_data = pd.read_excel(uploaded_file)
