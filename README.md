@@ -35,7 +35,7 @@ Scrape job listings from HH.ru and visualize them in a sleek, interactive dashbo
    pip install -r requirements.txt
 3. Run the program:
    ```bash
-   python main.py
+   python streamlit_app.py
 
 ## Usage 📝
 
