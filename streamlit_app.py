@@ -86,7 +86,7 @@ if not st.session_state.df.empty:
             
             2️⃣🚀 Нажмите "SEND RESUME" для отправки резюме.''')
         
-        with st.expander("alternative way 📥"):
+        with st.expander("Alternative way 📥"):
             uploaded_files = st.file_uploader('Choose a XLSX file with "apply_alternate_url"', accept_multiple_files=True, type=['xlsx'])
             for uploaded_file in uploaded_files:
                 bytes_data = pd.read_excel(uploaded_file)
@@ -113,7 +113,7 @@ if not st.session_state.df.empty:
 
         c1, c2 = st.columns(2)
         with c1:
-            if st.button('Generate list', key='button_feedbacks'):
+            if st.button('Generate List', key='button_feedbacks'):
                 df1 = st.session_state.df
                 if 'bytes_data' in globals():
                     data_urls = view_resume(salary_check, min_salary, df1, bytes_data, num_vacanc)
