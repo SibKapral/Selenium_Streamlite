@@ -22,6 +22,8 @@ Scrape job listings from HH.ru and visualize them in a sleek, interactive dashbo
 
 📋 **Excel Export**: Save your curated job data in Excel format for in-depth analysis and sharing.
 
+✉️ **Send Resume**:Sending a resume to a curated list of job vacancies.
+
 ## Installation 🛠️
 
 1. Clone the repository:
