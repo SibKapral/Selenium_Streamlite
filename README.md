@@ -8,6 +8,10 @@
 
 Scrape job listings from HH.ru and visualize them in a sleek, interactive dashboard. Export the curated data to Excel for further exploration.
 
+## Updates 🔄
+
+- [x] 01.09.2023 - Possibility to send a resume according to the generated list of vacancie
+
 ## Features 🚀
 
 🔍 **Data Gathering**: Effortlessly gather job listings from HH.ru using the powerful scraping capabilities of Python.
