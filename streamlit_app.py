@@ -65,7 +65,7 @@ if not st.session_state.df.empty:
                     file_name="main.xlsx"
                 )
     with tab2:
-        with st.expander("Instruction 📥"):
+        with st.expander("Instruction 📜"):
             st.code('''
             1️⃣ 📌 Прежде всего, решите, хотите ли вы фильтровать вакансии по зарплате:
 
