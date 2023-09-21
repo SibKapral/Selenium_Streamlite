@@ -1,6 +1,6 @@
 pandas
 plotly
-streamlit == 1.6
+streamlit
 openpyxl
 requests
 webdriver-manager
