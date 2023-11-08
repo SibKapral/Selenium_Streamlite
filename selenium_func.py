@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
 from time import sleep
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Get the path to chromedriver in the current directory
 def selen_func(log, pas):
@@ -12,7 +13,7 @@ def selen_func(log, pas):
 
     #@st.cache_resource
     def get_driver():
-        return webdriver.Chrome(options=options)
+        return webdriver.Chrome(ChromeDriverManager().install())(options=options)
 
 
 
